@@ -1,0 +1,26 @@
+{
+  "name": "dom",
+  "version": "1.0.0",
+  "description": "DOM explanation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasmo2/dom.git"
+  },
+  "keywords": [
+    "dom",
+    "javascript"
+  ],
+  "author": "jasmo2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasmo2/dom/issues"
+  },
+  "homepage": "https://github.com/jasmo2/dom#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
