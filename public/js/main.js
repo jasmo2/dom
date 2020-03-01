@@ -40,3 +40,13 @@ const parrafo = document.createElement('p')
 parrafo.classList.add('added-class')
 parrafo.textContent = 'Texto Interno del nuevo parrafo'
 bodyID.appendChild(parrafo)
+
+/**
+ * Remover Elemento
+ */
+
+setTimeout(() => {
+  console.log('Remove Element')
+  bodyID.removeChild(parrafo)
+  //  parrafo.parentElement.removeChild(parrafo)
+}, 1000)
