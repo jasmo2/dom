@@ -6,3 +6,23 @@ const claseCssParrafo = document.querySelectorAll('.clase-css-parrafo')
 console.log('claseCssParrafo', claseCssParrafo)
 const lastPIdx = claseCssParrafo.length - 1
 const lastP = claseCssParrafo[lastPIdx]
+/**
+ * Delegando funciones
+ * Agregando clases y removiendolas
+ */
+const clickDiv = document.querySelectorAll('.click-class')[0]
+clickDiv.addEventListener('click', function(event) {
+  // se usa function para
+  // poder usar el 'this' que del contexto.
+  // this.classList.toggle('color')
+
+  /**
+   * Aquí verificamos como añadir o remover clases.
+   */
+  if (this.classList.contains('color')) {
+    this.classList.remove('color')
+  } else {
+    this.classList.add('color')
+  }
+})
+lastP.classList.replace('clase-css-parrafo', 'clase-css-nuevo')
