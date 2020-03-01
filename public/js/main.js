@@ -26,3 +26,17 @@ clickDiv.addEventListener('click', function(event) {
   }
 })
 lastP.classList.replace('clase-css-parrafo', 'clase-css-nuevo')
+
+/**
+ * Insertando al DOM
+ */
+
+// Insertando teto
+// con innerHTML
+lastP.innerHTML = 'Esto es un párrafo II Con nuevo texto'
+
+const bodyID = document.querySelector('#bodyID')
+const parrafo = document.createElement('p')
+parrafo.classList.add('added-class')
+parrafo.textContent = 'Texto Interno del nuevo parrafo'
+bodyID.appendChild(parrafo)
