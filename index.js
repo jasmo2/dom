@@ -9,21 +9,12 @@ const app = express()
 app.use('/public', express.static(__dirname + '/public'))
 app.set('view engine', 'ejs')
 
-const upload = multer({ dest: 'uploads/' })
-const uploadValidationImg = multer({
-  dest: 'uploads/',
-  fileFilter(req, file, next) {
-    const isPhoto = file.mimetype.startsWith('image/')
-    if (isPhoto) {
-      next(null, true)
-    } else {
-      next({ message: 'El tipo de archivo no es válido' }, false)
-    }
-  }
-})
-
 app.get('/', (req, res) => {
   res.render('index')
+})
+
+app.get('/exercises', (req, res) => {
+  res.render('exercises')
 })
 
 const port = process.env.PORT || 3000
