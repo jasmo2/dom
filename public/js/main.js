@@ -50,3 +50,38 @@ setTimeout(() => {
   bodyID.removeChild(parrafo)
   //  parrafo.parentElement.removeChild(parrafo)
 }, 1000)
+
+/**
+ * Ajax request
+ */
+
+const form = document.querySelector('#formID')
+
+form.addEventListener('submit', async event => {
+  event.preventDefault()
+
+  const parrafo = document.createElement('p')
+  parrafo.classList.add('added-class')
+
+  let username = ''
+  for (const key in event.currentTarget.elements) {
+    if (
+      event.currentTarget.elements.hasOwnProperty(key) &&
+      event.currentTarget.elements[key].name === 'username'
+    ) {
+      username = event.currentTarget.elements[key].value
+      break
+    }
+  }
+  console.log('TCL: FORM username', username)
+  event.currentTarget.reset()
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}`)
+    const data = await res.json()
+
+    parrafo.textContent = `user: ${data.login}, name: ${data.name}`
+  } catch (error) {
+    parrafo.textContent = `Ha ocurrido un error`
+  }
+  bodyID.appendChild(parrafo)
+})
