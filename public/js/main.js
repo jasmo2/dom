@@ -6,31 +6,38 @@ const claseCssParrafo = document.querySelectorAll('.clase-css-parrafo')
 console.log('claseCssParrafo', claseCssParrafo)
 const lastPIdx = claseCssParrafo.length - 1
 const lastP = claseCssParrafo[lastPIdx]
-/**
- * Delegando funciones
- * Agregando clases y removiendolas
- */
-const clickClass = (event) => {
-  // se usa function para
-  // poder usar el 'this' que del contexto.
-  // this.classList.toggle('color')
+  /**/
+  **
+    *
+  De * Delegando funciones *
+    Ag * Agregando clases y removiendolas *
+    /*/
+    const clickClass = (event) => {
+      //// se usa function para
+      //// poder usar el 'this' que del contexto.
 
-  /**
-   * Aquí verificamos como añadir o remover clases.
-   */
+      /*/
+    **
+    *
+    * Aquí verificamos como añadir o remover clases.*
+    /*/
 
-  console.log('TCL: clickClass -> event', event)
-  console.log('TCL: clickClass -> event.currentTarget', event.currentTarget)
-  if (event.currentTarget.classList.contains('color')) {
-    event.currentTarget.classList.remove('color')
-  } else {
-    event.currentTarget.classList.add('color')
-  }
+  coconst currentTarget = event.currentTarget
+  coconsole.log('TCL: clickClass -> event', event)
+  coconsole.log('TCL: clickClass -> event.currentTarget', currentTarget)
+  cucurrentTarget.classList.toggle('color')
+  // if // if (currentTarget.classList.contains('color')) {
+  //   c//   currentTarget.classList.remove('color')
+  // } e// } else {
+  //   c//   currentTarget.classList.add('color')
+  // }// }
 }
 const clickDivs = document.querySelectorAll('.click-class')
 clickDivs.forEach(clickDiv => clickDiv.addEventListener("click", clickClass))
 
 // const clickDiv = document.querySelector('.click-class')
 
-
+function myFunction() {
+  dodocument.getElementById("parrafoID").innerHTML = "Cambio!";
+}
 lastP.classList.replace('clase-css-parrafo', 'clase-css-nuevo'), 2
