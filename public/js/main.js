@@ -6,38 +6,47 @@ const claseCssParrafo = document.querySelectorAll('.clase-css-parrafo')
 console.log('claseCssParrafo', claseCssParrafo)
 const lastPIdx = claseCssParrafo.length - 1
 const lastP = claseCssParrafo[lastPIdx]
-  /**/
-  **
-    *
-  De * Delegando funciones *
-    Ag * Agregando clases y removiendolas *
-    /*/
-    const clickClass = (event) => {
-      //// se usa function para
-      //// poder usar el 'this' que del contexto.
+/**
+ * Delegando funciones
+ * Agregando clases y removiendolas
+ */
+const clickDiv = document.querySelectorAll('.click-class')[0]
+clickDiv.addEventListener('click', function(event) {
+  // se usa function para
+  // poder usar el 'this' que del contexto.
+  // this.classList.toggle('color')
 
-      /*/
-    **
-    *
-    * Aquí verificamos como añadir o remover clases.*
-    /*/
+  /**
+   * Aquí verificamos como añadir o remover clases.
+   */
+  if (this.classList.contains('color')) {
+    this.classList.remove('color')
+  } else {
+    this.classList.add('color')
+  }
+})
+lastP.classList.replace('clase-css-parrafo', 'clase-css-nuevo')
 
-  coconst currentTarget = event.currentTarget
-  coconsole.log('TCL: clickClass -> event', event)
-  coconsole.log('TCL: clickClass -> event.currentTarget', currentTarget)
-  cucurrentTarget.classList.toggle('color')
-  // if // if (currentTarget.classList.contains('color')) {
-  //   c//   currentTarget.classList.remove('color')
-  // } e// } else {
-  //   c//   currentTarget.classList.add('color')
-  // }// }
-}
-const clickDivs = document.querySelectorAll('.click-class')
-clickDivs.forEach(clickDiv => clickDiv.addEventListener("click", clickClass))
+/**
+ * Insertando al DOM
+ */
 
-// const clickDiv = document.querySelector('.click-class')
+// Insertando teto
+// con innerHTML
+lastP.innerHTML = 'Esto es un párrafo II Con nuevo texto'
 
-function myFunction() {
-  dodocument.getElementById("parrafoID").innerHTML = "Cambio!";
-}
-lastP.classList.replace('clase-css-parrafo', 'clase-css-nuevo'), 2
+const bodyID = document.querySelector('#bodyID')
+const parrafo = document.createElement('p')
+parrafo.classList.add('added-class')
+parrafo.textContent = 'Texto Interno del nuevo parrafo'
+bodyID.appendChild(parrafo)
+
+/**
+ * Remover Elemento
+ */
+
+setTimeout(() => {
+  console.log('Remove Element')
+  bodyID.removeChild(parrafo)
+  //  parrafo.parentElement.removeChild(parrafo)
+}, 1000)
