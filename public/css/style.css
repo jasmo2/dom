@@ -1,8 +1,15 @@
 .click-class {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 .click-class.color {
-  background-color: rgba(235, 90, 37, 0.495);
+    background-color: rgba(235, 90, 37, 0.495);
 }
 
+.list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-left: 30px;
+    width: 300px;
+}
