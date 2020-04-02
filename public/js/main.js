@@ -45,8 +45,23 @@ bodyID.appendChild(parrafo)
  * Remover Elemento
  */
 
-setTimeout(() => {
-  console.log('Remove Element')
-  bodyID.removeChild(parrafo)
-  //  parrafo.parentElement.removeChild(parrafo)
-}, 1000)
+// setTimeout(() => {
+//   console.log('Remove Element')
+//   bodyID.removeChild(parrafo)
+//   //  parrafo.parentElement.removeChild(parrafo)
+// }, 3000)
+
+function removeParragraph(e) {
+  const parrafo = e.currentTarget
+  const parent = parrafo.parentElement
+  const removedElement = parent.removeChild(parrafo)
+  console.log('TCL: removeParragraph -> removedElement', removedElement)
+  setTimeout(() => {
+    const r = confirm('¿Deseas volverlo a insertar?')
+    if (r == true) {
+      parent.appendChild(removedElement)
+    }
+  }, 1600)
+}
+
+parrafo.onclick = removeParragraph
