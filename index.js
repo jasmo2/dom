@@ -18,6 +18,10 @@ app.get('/exercises', (req, res) => {
   res.render('exercises')
 })
 
+app.get('/search', (req, res) => {
+  res.render('github')
+})
+
 app.post('/form', (req, res) => {
   console.log('TCL: req', req.body)
   res.status(200).json({ sucess: 'object recieved' })

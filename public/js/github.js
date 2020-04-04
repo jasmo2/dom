@@ -17,3 +17,54 @@
  *
  *
  */
+
+M.AutoInit()
+
+const searchBar = document.querySelector('nav.nav-container')
+// const navTag = document.getElementsByTagName('nav')
+
+console.log('TLC: searchBar', searchBar)
+
+searchBar.addEventListener('focusin', (e) => {
+  // debugger
+  e.currentTarget.classList.add('nav-container-focus')
+  console.log('TLC: e.currentTarget', e.currentTarget)
+})
+
+searchBar.addEventListener('focusout', (e) => {
+  e.currentTarget.classList.remove('nav-container-focus')
+})
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const elems = document.querySelectorAll('.dropdown-trigger')
+//     const instances = M.Dropdown.init(elems)
+// })
+
+const list = document.querySelector('#list-result')
+
+searchBar.addEventListener('keydown', searchResult)
+
+let repo = ''
+
+async function searchResult(event) {
+  // event.preventDefault()
+  list.innerHTML = ''
+  repo += event.key
+  console.log('TLC: searchResult -> repo', repo)
+
+  try {
+    const result = await fetch(
+      `https://api.github.com/search/repositories?q=${repo}`
+    )
+    const data = await result.json()
+
+    for (let i = 0; i < 5; i++) {
+      const elementList = document.createElement('li')
+      elementList.append(data.items[i].name)
+      console.log('TLC: searchResult -> elementList', elementList)
+      list.appendChild(elementList)
+      console.log('TLC: searchResult -> data', data.items[i].name)
+      // console.log('TLC: searchResult -> data', data)
+    }
+  } catch (error) {}
+}
