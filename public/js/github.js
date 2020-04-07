@@ -23,33 +23,38 @@ M.AutoInit()
 const searchBar = document.querySelector('nav.nav-container')
 // const navTag = document.getElementsByTagName('nav')
 
-console.log('TLC: searchBar', searchBar)
+// console.log('TLC: searchBar', searchBar)
 
 searchBar.addEventListener('focusin', (e) => {
   // debugger
   e.currentTarget.classList.add('nav-container-focus')
-  console.log('TLC: e.currentTarget', e.currentTarget)
+  // console.log('TLC: e.currentTarget', e.currentTarget)
 })
 
 searchBar.addEventListener('focusout', (e) => {
   e.currentTarget.classList.remove('nav-container-focus')
 })
 
-// document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('keyup', function() {
 //     const elems = document.querySelectorAll('.dropdown-trigger')
 //     const instances = M.Dropdown.init(elems)
 // })
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.collapsible')
+  var instances = M.Collapsible.init(elems)
+})
 
-const list = document.querySelector('#list-result')
+const list = document.querySelector('#dropdown1')
+console.log('TLC: list', list)
 
-searchBar.addEventListener('keydown', searchResult)
+searchBar.addEventListener('keyup', searchResult)
 
 let repo = ''
 
 async function searchResult(event) {
   // event.preventDefault()
   list.innerHTML = ''
-  repo += event.key
+  repo = event.target.value
   console.log('TLC: searchResult -> repo', repo)
 
   try {
@@ -57,14 +62,18 @@ async function searchResult(event) {
       `https://api.github.com/search/repositories?q=${repo}`
     )
     const data = await result.json()
-
-    for (let i = 0; i < 5; i++) {
-      const elementList = document.createElement('li')
-      elementList.append(data.items[i].name)
-      console.log('TLC: searchResult -> elementList', elementList)
-      list.appendChild(elementList)
-      console.log('TLC: searchResult -> data', data.items[i].name)
-      // console.log('TLC: searchResult -> data', data)
+    console.log('TLC: searchResult -> data', data)
+    if (!data.message) {
+      for (let i = 0; i < 5; i++) {
+        const elementList = document.createElement('li')
+        elementList.append(data.items[i].name)
+        console.log('TLC: searchResult -> elementList', elementList)
+        list.appendChild(elementList)
+        // console.log('TLC: searchResult -> data', data.items[i].name)
+        // console.log('TLC: searchResult -> data', data)
+      }
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message)
+  }
 }

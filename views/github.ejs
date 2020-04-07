@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="/public/css/style.css" />
-  </head>
+</head>
 
-  <body>
-    <nav class="nav-container">
-      <div class="nav-wrapper">
-        <form>
-          <div class="input-field">
-            <input id="search" type="search" required />
-            <label class="label-icon" for="search">
-              <i class="material-icons">search</i></label
-            >
-            <i class="material-icons">close</i>
-          </div>
-        </form>
-      </div>
-    </nav>
+<body>
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header">
+                <nav class="nav-container ">
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search" required />
+                                <label class="label-icon" for="search">
+                                <i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+
+
+            <div class="collapsible-body">
+                <ul id="dropdown1"></ul>
+            </div>
+        </li>
+    </ul>
+
+
 
     <!-- <div class="consult-drop2"> -->
     <!-- Dropdown Trigger -->
@@ -37,11 +44,17 @@
       > -->
 
     <!-- Dropdown Structure -->
-    <ul id="list-result" class="dropdown-content2"></ul>
     <!-- </div> -->
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="/public/js/github.js"></script>
-  </body>
+</body>
+
+</html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="/public/js/github.js"></script>
+</body>
+
 </html>
