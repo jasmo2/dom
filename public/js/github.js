@@ -20,19 +20,27 @@
 
 M.AutoInit()
 
-const searchBar = document.querySelector('nav.nav-container')
+const searchBar = document.querySelector('.collapsible')
+const div = document.querySelector('#div-collapsible')
+// const li = document.querySelector('#active')
+// console.log('TLC: li', li)
 // const navTag = document.getElementsByTagName('nav')
 
 // console.log('TLC: searchBar', searchBar)
 
 searchBar.addEventListener('focusin', (e) => {
   // debugger
-  e.currentTarget.classList.add('nav-container-focus')
+  e.currentTarget.classList.add('collapsible-focus')
+  // div.style.display = 'block'
+  div.classList.add('collapsible-body')
   // console.log('TLC: e.currentTarget', e.currentTarget)
 })
 
 searchBar.addEventListener('focusout', (e) => {
-  e.currentTarget.classList.remove('nav-container-focus')
+  e.currentTarget.classList.remove('collapsible-focus')
+  div.classList.remove('collapsible-body')
+  // div.removeAttribute('style')
+  // div.style.display = ''
 })
 
 // document.addEventListener('keyup', function() {

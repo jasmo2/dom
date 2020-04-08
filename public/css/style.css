@@ -11,15 +11,28 @@
   justify-content: space-between;
   margin-top: 10px;
   padding-left: 30px;
-  width: 300px;
+  width: 80%;
 }
 
 nav.nav-container {
   background-color: #d2d2d2;
+  max-width: 100%;
+  transition: max-width 0.4s;
+}
+
+.collapsible {
   max-width: 60%;
   transition: max-width 0.4s;
 }
 
-nav.nav-container-focus {
+body div.collapsible-header {
+  padding: 0;
+}
+
+.collapsible-focus {
   max-width: 80%;
+}
+
+.collapsible-body {
+  display: block;
 }
